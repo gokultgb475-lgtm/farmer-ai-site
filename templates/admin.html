@@ -34,8 +34,10 @@
 <td>{{ f[2] }}</td>
 <td>{{ f[3] }}</td>
 <td>
+    <a href="/edit/{{ loop.index0 }}">Edit</a> |
     <a href="/delete/{{ loop.index0 }}">Delete</a>
 </td>
+
 </tr>
 {% endfor %}
 

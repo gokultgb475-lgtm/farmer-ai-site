@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Farmer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Edit Farmer Details</h1>
+</header>
+
+<div class="login-box" style="width:350px;margin:auto;">
+
+<form method="POST">
+
+<input name="name" value="{{ farmer[0] }}">
+<input name="location" value="{{ farmer[1] }}">
+<input name="crop" value="{{ farmer[2] }}">
+<input name="land" value="{{ farmer[3] }}">
+
+<button type="submit">Update</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

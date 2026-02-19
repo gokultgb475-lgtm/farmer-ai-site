@@ -103,7 +103,7 @@ def admin_dashboard():
 
     return render_template("admin.html", farmers=farmers)
 
-# DELETE ENTRY
+# -------- DELETE ENTRY --------
 @app.route('/delete/<int:index>')
 def delete(index):
     if not session.get('admin'):
@@ -129,7 +129,37 @@ def logout():
     session.clear()
     return redirect('/')
 
-# RUN APP (RENDER + LOCAL)
+
+# -------- EDIT ENTRY --------
+@app.route('/edit/<int:index>', methods=['GET','POST'])
+def edit(index):
+    if not session.get('admin'):
+        return redirect('/admin')
+
+    lines = []
+
+    with open("data.csv") as f:
+        lines = f.readlines()
+
+    farmer = lines[index].strip().split(",")
+
+    if request.method == 'POST':
+        name = request.form['name']
+        location = request.form['location']
+        crop = request.form['crop']
+        land = request.form['land']
+
+        lines[index] = f"{name},{location},{crop},{land}\n"
+
+        with open("data.csv","w") as f:
+            f.writelines(lines)
+
+        return redirect('/admin/dashboard')
+
+    return render_template("edit.html", farmer=farmer)
+
+
+# -------- RUN APP (RENDER + LOCAL) --------
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
