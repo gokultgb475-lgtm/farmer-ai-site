@@ -45,13 +45,19 @@ def dashboard():
 
     top_crop = max(crops, key=crops.get) if crops else "None"
 
-    return render_template(
-        'dashboard.html',
-        farmers=farmers,
-        total=len(farmers),
-        land=round(total_land,2),
-        top=top_crop
-    )
+    # ---- CROP COUNT FOR CHART ----
+labels = list(crops.keys())
+values = list(crops.values())
+
+return render_template(
+    'dashboard.html',
+    farmers=farmers,
+    total=len(farmers),
+    land=round(total_land,2),
+    top=top_crop,
+    labels=labels,
+    values=values
+)
 
 # FORM PAGE
 @app.route('/form')

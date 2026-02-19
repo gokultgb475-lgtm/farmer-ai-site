@@ -72,13 +72,16 @@
 </section>
 
 <script>
-new Chart(document.getElementById('chart1'), {
+const ctx = document.getElementById('chart1');
+
+new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Rice','Wheat','Tomato','Onion','Maize'],
+        labels: {{ labels|tojson }},
         datasets: [{
-            label: 'Demand',
-            data: [12,19,8,15,10]
+            label: 'Crop Count',
+            data: {{ values|tojson }},
+            backgroundColor: '#4CAF50'
         }]
     }
 });
