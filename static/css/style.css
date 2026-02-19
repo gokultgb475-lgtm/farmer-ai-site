@@ -1,0 +1,88 @@
+body {
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background:#f5f7fb;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(135deg,#4CAF50,#2E7D32);
+    color:white;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+nav a {
+    color:white;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:500;
+}
+
+/* HERO / BOX */
+.login-box, .card {
+    background:white;
+    border-radius:14px;
+    padding:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.06);
+}
+
+/* BUTTON */
+button, .btn {
+    background:linear-gradient(135deg,#66bb6a,#43a047);
+    color:white;
+    border:none;
+    padding:12px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.2s;
+}
+
+button:hover, .btn:hover {
+    transform:translateY(-1px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* INPUT */
+input {
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border-radius:8px;
+    border:1px solid #ddd;
+}
+
+/* CARD GRID */
+.cards {
+    display:flex;
+    gap:20px;
+    justify-content:center;
+    flex-wrap:wrap;
+    margin-top:40px;
+}
+
+.card h3 {
+    margin:0 0 10px;
+}
+
+/* TABLE */
+table {
+    border-collapse:collapse;
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+th {
+    background:#4CAF50;
+    color:white;
+}
+
+td, th {
+    padding:12px;
+    text-align:center;
+}
