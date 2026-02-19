@@ -115,7 +115,8 @@ def delete(index):
 
     return redirect('/admin/dashboard')
 
-# LOGOUT
+
+# -------- LOGOUT ROUTE --------
 @app.route('/logout')
 def logout():
     session.clear()
