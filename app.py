@@ -1,8 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import os
+import bcrypt
 
 app = Flask(__name__)
 app.secret_key = "adminsecret"
+
+ADMIN_USER = "gokul"
+ADMIN_PASS = bcrypt.hashpw(b"gokul", bcrypt.gensalt())
 
 # HOME PAGE
 @app.route('/')
@@ -69,7 +73,8 @@ def admin():
         user = request.form['username']
         pwd = request.form['password']
 
-        if user == "admin" and pwd == "1234":
+        if user == ADMIN_USER and bcrypt.checkpw(pwd.encode(), ADMIN_PASS):
+
             session['admin'] = True
             return redirect('/admin/dashboard')
 
