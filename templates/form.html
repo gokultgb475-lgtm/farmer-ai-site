@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Input Form</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>🌾 Farmer Crop Input</h1>
+</header>
+
+<div class="login-box" style="width:350px">
+
+    <h2>Enter Crop Details</h2>
+
+    <form action="/submit" method="POST">
+
+        <input name="name" type="text" placeholder="Farmer Name" required>
+        <input name="location" type="text" placeholder="Location" required>
+        <input name="crop" type="text" placeholder="Crop Name" required>
+        <input name="land" type="number" placeholder="Land Size (acres)" required>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
+

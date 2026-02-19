@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmer Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        .cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0px 0px 8px #ccc;
+            border-radius: 8px;
+        }
+
+        .charts {
+            width: 80%;
+            margin: 40px auto;
+        }
+
+        table {
+            background: white;
+            box-shadow: 0px 0px 8px #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🌾 Farmer Dashboard</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/form">Input</a>
+    </nav>
+</header>
+
+<!-- INFO CARDS -->
+<section class="cards">
+    <div class="card">
+    <h3>👨‍🌾 Farmers</h3>
+    <p>{{ total }}</p>
+</div>
+
+<div class="card">
+    <h3>🌱 Top Crop</h3>
+    <p>{{ top }}</p>
+</div>
+
+<div class="card">
+    <h3>🌾 Total Land</h3>
+    <p>{{ land }} acres</p>
+</div>
+
+</section>
+
+<!-- CHARTS -->
+<section class="charts">
+    <h2>Market Demand</h2>
+    <canvas id="chart1"></canvas>
+</section>
+
+<script>
+new Chart(document.getElementById('chart1'), {
+    type: 'bar',
+    data: {
+        labels: ['Rice','Wheat','Tomato','Onion','Maize'],
+        datasets: [{
+            label: 'Demand',
+            data: [12,19,8,15,10]
+        }]
+    }
+});
+</script>
+
+<!-- FARMER DATA TABLE -->
+<section style="width:80%; margin:auto;">
+    <h2>Farmer Records</h2>
+
+    <table border="1" width="100%" cellpadding="10">
+        <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Crop</th>
+            <th>Land</th>
+        </tr>
+
+        {% for f in farmers %}
+        <tr>
+            <td>{{ f[0] }}</td>
+            <td>{{ f[1] }}</td>
+            <td>{{ f[2] }}</td>
+            <td>{{ f[3] }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</section>
+
+</body>
+</html>
+
