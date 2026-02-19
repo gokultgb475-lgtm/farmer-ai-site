@@ -86,3 +86,29 @@ td, th {
     padding:12px;
     text-align:center;
 }
+/* MOBILE RESPONSIVE */
+@media (max-width:768px){
+
+header{
+    flex-direction:column;
+    text-align:center;
+}
+
+nav{
+    margin-top:10px;
+}
+
+.cards{
+    flex-direction:column;
+    align-items:center;
+}
+
+.login-box{
+    width:90% !important;
+}
+
+table{
+    font-size:14px;
+}
+
+}
