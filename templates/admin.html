@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>🛠 Admin Dashboard</h1>
+</header>
+
+<section style="width:80%;margin:auto;">
+
+<h2>All Farmer Records</h2>
+
+<table border="1" width="100%">
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Crop</th>
+<th>Land</th>
+<th>Action</th>
+</tr>
+
+{% for f in farmers %}
+<tr>
+<td>{{ f[0] }}</td>
+<td>{{ f[1] }}</td>
+<td>{{ f[2] }}</td>
+<td>{{ f[3] }}</td>
+<td>
+    <a href="/delete/{{ loop.index0 }}">Delete</a>
+</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</section>
+
+</body>
+</html>
