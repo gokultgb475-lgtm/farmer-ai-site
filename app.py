@@ -14,13 +14,20 @@ def home():
     return render_template('index.html')
 
 # NORMAL LOGIN PAGE
-@app.route('/login')
+@app.route('/login', methods=['GET','POST'])
 def login():
+    if request.method == 'POST':
+        session['user'] = True
+        return redirect('/dashboard')
     return render_template('login.html')
+
 
 # DASHBOARD (USER VIEW)
 @app.route('/dashboard')
 def dashboard():
+    if not session.get('user'):
+        return redirect('/login')
+
     farmers = []
     total_land = 0
     crops = {}
